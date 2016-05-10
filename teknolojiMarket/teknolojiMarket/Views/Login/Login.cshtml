@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="nomargin">
+    <header class="bread prime">
+        <div class="container">
+            <h3><i class="icon-level-down"></i>Login</h3>
+        </div>
+    </header>
+</div>
+<div class="container">
+
+    <!-- Login Section -->
+    <section class="login">
+
+
+        <div class="wrap nopadding">
+
+            <div class="row-fluid">
+                <div class="span6 login-box">
+
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#login"><i class="icon-lock"></i> Returning customer</a></li>
+                        <li><a href="#forgot"><i class="icon-help"></i> Forgot password</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <!-- Login -->
+                        <div class="tab-pane active" id="login">
+                       @using (Html.BeginForm())
+                       {
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail"> Email</label>
+                            <div class="controls">
+                                @Html.TextBox("inputEmail")
+                            </div>
+                        </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword">Password</label>
+                                    <div class="controls">
+                                       @Html.Password("inputPassword")
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="submit" class="btn theme" value="Giris" />
+                                        <!-- <button type="submit" class="btn theme">Login</button> -->
+                                    </div>
+                                </div>
+                       }
+                 
+                        </div>
+
+                        <!-- Register -->
+                        <div class="tab-pane" id="forgot">
+                            <form class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label" for="inputEmail"> Email</label>
+                                    <div class="controls">
+                                        <input type="email" id="inputEmail" placeholder="Email">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <button type="submit" class="btn theme">Retrieve password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="span6 login-box">
+                    <h5><i class="icon-user-add"></i>New Customer</h5>
+                    <hr>
+                    <p>
+                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.
+                    </p><div class="control-group">
+                        <div class="controls">
+                            <a href="@Url.Action("Create", "Login")"> <button type="submit" class="btn theme">Create an Account →</button></a>
+                        </div>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+</div>
+<br />

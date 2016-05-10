@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "Ana Sayfa";
+}
+
+ 
+<div class="homepagecontainer">
+    <div class="slides home-span12">
+        <div class="container">
+
+            <div id="flexslider" class="flexslider row">
+
+                <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                    <ul class="slides span12" style="width: 1600%; transition-duration: 0.6s; transform: translate3d(-3620px, 0px, 0px);">
+                        <li class="clone" style="width: 724px; float: left; display: block;"><img src="@Url.Content("~/Content/img/banner/homebanner6.png")" alt=""></li>
+
+                        <!-- Sample slider with text caption -->
+                        <li class="" style="width: 724px; float: left; display: block;">
+                            <img src="@Url.Content("~/Content/img/banner/homebanner1.png")" alt="">
+                            <p class="flex-caption">
+                                <strong>CAPTION</strong><br>
+                                Put any caption, description or anything here.<br><br>
+                                <a href="#" class="btn theme">$465 | BUY IT</a>
+                            </p>
+                        </li>
+
+                        <!-- Sample slider wrapped with link -->
+                        <li class="" style="width: 724px; float: left; display: block;"><a href="#"><img src="@Url.Content("~/Content/img/banner/homebanner2.png")" alt=""></a></li>
+
+                        <!-- Sample normal slider -->
+                        <li style="width: 724px; float: left; display: block;" class=""><img src="@Url.Content("~/Content/img/banner/homebanner3.png")" alt=""></li>
+                        <li style="width: 724px; float: left; display: block;" class=""><img src="@Url.Content("~/Content/img/banner/homebanner4.png")" alt=""></li>
+                        <li style="width: 724px; float: left; display: block;" class="flex-active-slide"><img src="@Url.Content("~/Content/img/banner/homebanner5.png")" alt=""></li>
+                        <li style="width: 724px; float: left; display: block;" class=""><img src="@Url.Content("~/Content/img/banner/homebanner6.png")" alt=""></li>
+
+
+                        <li class="clone" style="width: 724px; float: left; display: block;">
+                            <img src="@Url.Content("~/Content/img/banner/homebanner1.png")" alt="">
+                            <p class="flex-caption">
+                                <strong>CAPTION</strong><br>
+                                Put any caption, description or anything here.<br><br>
+                                <a href="#" class="btn theme">$465 | BUY IT</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li><li><a class="">4</a></li><li><a class="flex-active">5</a></li><li><a class="">6</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <!-- =================== -->
+    <!-- Promo Banner Option -->
+    <!-- =================== -->
+
+    <section class="home-panel promo">
+        <div class="container" style="display:block">
+
+            <div class="row-fluid">
+                <article class="span4"><a href="#"><img src="@Url.Content("~/Content/img/banner/b1.png")" alt=""></a></article>
+                <article class="span4"><a href="#"><img src="@Url.Content("~/Content/img/banner/b2.png")" alt=""></a></article>
+                <article class="span4"><a href="#"><img src="@Url.Content("~/Content/img/banner/b3.png")" alt=""></a></article>
+            </div>
+        </div>
+    </section>
+
+    <div class="container home">
+
+        <!-- ================ -->
+        <!-- Featured section -->
+        <!-- ================ -->
+
+        <section class="feat">
+
+            <div class="row">
+                <div class="span12">
+
+                    <h6 class="subhead theme"><strong>FEATURED ITEMS</strong></h6>
+
+                    <div class="tab-content row">
+
+                        <!-- Feat tab -->
+                        <div class="tab-pane active" id="feat">
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/1.jpg")" alt="">
+                                    <div class="mask">
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="@Url.Content("~/Content/product.html")" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/2.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/3.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/4.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/5.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/6.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/7.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/8.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                            <article class="span4">
+                                <div class="view view-thumb">
+                                    <img src="@Url.Content("~/Content/img/products/9.jpg")" alt="">
+                                    <div class="mask">
+
+                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
+                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
+                                    </div>
+                                </div>
+                                <h5>$465</h5>
+                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
+                            </article>
+                        </div>
+                    </div> <!-- End tab-content -->
+
+                </div>
+            </div>
+
+
+            <!-- ====== -->
+            <!-- Brands -->
+            <!-- ====== -->
+
+            <h6 class="subhead theme brands"><strong>DESIGNER BRANDS</strong></h6>
+
+            <div class="tab-brand">
+                <div id="flexcarousel-brands" class="flexslider">
+
+                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                        <ul class="slides" style="width: 1800%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/branda.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/brandb.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/brandc.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/brandd.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/brande.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/brandf.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/brandg.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/brandh.jpg")" alt=""></li>
+                            <li style="width: 182px; float: left; display: block;"><img src="@Url.Content("~/Content/img/brands/branda.jpg")" alt=""></li>
+
+
+                        </ul>
+                    </div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</div>
