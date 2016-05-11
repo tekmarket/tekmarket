@@ -1,5 +1,5 @@
 ﻿
-@using tekmarket_MVC.Models;
+@using teknolojiMarket.Models;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,11 +86,13 @@
                             Hoşgeldin @{ 
                                 var name = "Ziyaretci";
                                 var bakiye = 0.0;
+                                var sepet=new List<Urun>();
                                 if (Session["musteri"] != null)
                                 {
                                     var m = Session["musteri"] as Musteri;
                                     name = m.ad;
                                     bakiye = m.bakiye;
+                                    sepet = m.sepet;
                                 }
                                 ViewBag.Ad = name;
                                 ViewBag.Bakiye = bakiye;

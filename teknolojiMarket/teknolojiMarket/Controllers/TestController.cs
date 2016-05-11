@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using tekmarket_MVC.Models;
+using teknolojiMarket.Models;
 
-namespace tekmarket_MVC.Controllers
+namespace teknolojiMarket.Controllers
 {
     public class TestController : Controller
     {

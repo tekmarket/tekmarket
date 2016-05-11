@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Data;
 
-namespace tekmarket_MVC.Models
+namespace teknolojiMarket.Models
 {
     public class CodeDB
     {
