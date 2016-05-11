@@ -1437,9 +1437,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CheckOut\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Home\Checkout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

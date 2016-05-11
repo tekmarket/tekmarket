@@ -32,6 +32,7 @@ namespace teknolojiMarket.Models
             for (int i=0;i<dt.Rows.Count;i++) {
                 u = new Urun(dt.Rows[i]);
                 sepet.Add(u);
+
             }
         }
     }

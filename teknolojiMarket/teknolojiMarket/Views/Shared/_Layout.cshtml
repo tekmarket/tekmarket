@@ -86,13 +86,14 @@
                             Hoşgeldin @{ 
                                 var name = "Ziyaretci";
                                 var bakiye = 0.0;
-                                var sepet=new List<Urun>();
+                                var sepet = new List<Urun>();
                                 if (Session["musteri"] != null)
                                 {
                                     var m = Session["musteri"] as Musteri;
                                     name = m.ad;
                                     bakiye = m.bakiye;
                                     sepet = m.sepet;
+
                                 }
                                 ViewBag.Ad = name;
                                 ViewBag.Bakiye = bakiye;
@@ -126,30 +127,26 @@
                             <div class="cartbubble">
 
                                 <div class="arrow-box">
-
-                                    <!-- Item 1 -->
-                                    <div class="clearfix">
-                                        <a href="#">Sample Tshirt Stripes...</a> <span class="theme pull-right">$55</span>
-                                    </div>
-
-                                    <!-- Item 2 -->
-                                    <div class="clearfix">
-                                        <a href="#">Sample Dress in cart</a> <span class="theme pull-right">$73</span>
-                                    </div>
-
-                                    <!-- Item 3 -->
-                                    <div class="clearfix">
-                                        <a href="#">Sample Socks in cart</a> <span class="theme pull-right">$11</span>
-                                    </div>
+                                    @{
+                                            double toplam = 0;
+                                            for (int i = 0; i < sepet.Count; i++)
+                                            {
+                                            <div class="clearfix">
+                                                <a href="#">@sepet[i].baslik</a> <a href="#">  </a> <span class="theme pull-right">$@sepet[i].fiyat</span>
+                                            </div>
+                                            toplam += sepet[i].fiyat;
+                                        }
+                                    }
+                                    
                                     <hr />
                                     <!-- Total -->
                                     <div class="clearfix">
-                                        TOTAL <span class="theme pull-right">$139</span>
+                                        TOTAL <span class="theme pull-right">$@toplam</span>
                                     </div>
                                     <hr />
                                     <div class="clearfix">
                                         <a href="javascript:void(0)" id="closeit">Close</a>
-                                        <a href="checkout.html" class="btn theme btn-mini pull-right">Checkout</a>
+                                        <a href="@Url.Action("Checkout","Home")" class="btn theme btn-mini pull-right">Checkout</a>
                                     </div>
                                 </div>
 
@@ -288,7 +285,7 @@
                                             <li><a href="product-list-sidebar.html">Products list with sidebar</a></li>
                                             <li><a href="product.html">Product page</a></li>
                                             <li><a href="login.html">Login Page</a></li>
-                                            <li><a href="checkout.html">Checkout Page</a></li>
+                                            <li><a href="@Url.Action("Home","Checkout")">Checkout Page</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="features.html">Features</a></li>

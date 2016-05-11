@@ -22,7 +22,11 @@ namespace teknolojiMarket.Controllers
             DataTable sqlSonuc =  cntrl.SqlSorgu(sqlSorugum);
             if (sqlSonuc!=null)
             {
-                Session["musteri"] = new Musteri(sqlSonuc); 
+                Musteri m = new Musteri(sqlSonuc);
+                sqlSorugum = "SELECT U.kodu,U.baslik, U.aciklama,U.marka,U.fiyat,U.resim,U.stok FROM Urun as U, Sepet as S WHERE U.kodu=S.Urun_kodu;";
+                sqlSonuc = cntrl.SqlSorgu(sqlSorugum);
+                m.sepetDoldur(sqlSonuc);
+                Session["musteri"] = m;
                 return RedirectToAction("Index", "Home");
             }
             else {
