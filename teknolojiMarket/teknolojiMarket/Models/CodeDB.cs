@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
+using System.Data;
 
 namespace tekmarket_MVC.Models
 {
@@ -11,8 +12,13 @@ namespace tekmarket_MVC.Models
     {
         //variable connection
         protected SqlConnection con;
-
+        private bool state = false;
         //open connection
+
+        public bool isOpen() {
+            return state;
+        }
+
         public bool Open(string Connection = "DefaultConnection") {
             con = new SqlConnection(@WebConfigurationManager.ConnectionStrings[Connection].ToString());
            
@@ -22,6 +28,7 @@ namespace tekmarket_MVC.Models
                 if (con.State.ToString() != "Open") {
                     con.Open();
                 }
+                state = true;
                 return b;
             }
             catch (SqlException ex) {
@@ -35,12 +42,33 @@ namespace tekmarket_MVC.Models
             try
             {
                 con.Close();
+                state = false;
                 return true;
             }
             catch(Exception ex)
             {
+                state = false;
                 return false;
             }
         }
+
+        public DataTable SqlSorgu(string komut) {
+            DataTable sonuc = new DataTable();
+            if (!state) {
+                Open();
+            }
+            if (komut[0].ToString().ToLower() != "s")
+            {
+                SqlCommand sorgu = new SqlCommand(komut, con);
+                sorgu.ExecuteNonQuery();
+            }
+            else {
+                SqlDataAdapter adptr = new SqlDataAdapter(komut, con);
+                adptr.Fill(sonuc);
+            }
+            Close();
+            return sonuc;
+        }
+          
     }
 }
