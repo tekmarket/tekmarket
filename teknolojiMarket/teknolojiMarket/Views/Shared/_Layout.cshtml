@@ -85,12 +85,15 @@
                         <div class="pull-left greet">
                             Hoşgeldin @{ 
                                 var name = "Ziyaretci";
+                                var bakiye = 0.0;
                                 if (Session["musteri"] != null)
                                 {
                                     var m = Session["musteri"] as Musteri;
                                     name = m.ad;
+                                    bakiye = m.bakiye;
                                 }
                                 ViewBag.Ad = name;
+                                ViewBag.Bakiye = bakiye;
                             }
                         @ViewBag.Ad , 
                             @{
@@ -111,7 +114,7 @@
                                 if (Session["musteri"] != null)
                                 {
                                     <div class="counter">
-                                        <a href="javascript:void(0);"><i class="icon-basket"></i> Your cart </a> : <span class="theme">$139</span>
+                                        <a href="javascript:void(0);"><i class="icon-basket"></i> Your cart </a> : <span class="theme">$@ViewBag.Bakiye</span>
                                     </div>
                                 }
                             }
@@ -190,7 +193,7 @@
                                 <ul class="nav" id="nav">
 
                                     <li>
-                                        <a href="index.html">Home</a>
+                                        @Html.ActionLink("Anasayfa", "Index", "Home")
                                         <ul class="nav">
                                             <li><a href="index-portfolio.html">    Home Portfolio  	   </a></li>
                                             <li><a href="index-business.html">     Home Portfolio - 2  </a></li>

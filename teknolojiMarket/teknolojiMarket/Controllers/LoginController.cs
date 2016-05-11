@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using tekmarket_MVC.Controllers;
 using tekmarket_MVC.Models;
+using System.Data;
 namespace tekmarket_MVC.Controllers
 {
     public class LoginController : Controller
@@ -17,9 +18,12 @@ namespace tekmarket_MVC.Controllers
         [HttpPost]
         public ActionResult Login(string inputEmail, string inputPassword)
         {
-            if (inputEmail == "yusuf@e.com" && inputPassword == "123")
+            string sqlSorugum = "SELECT * FROM Musteri WHERE nik='" + inputEmail + "';";
+            CodeDB cntrl = new CodeDB();
+            DataTable sqlSonuc =  cntrl.SqlSorgu(sqlSorugum);
+            if (sqlSonuc!=null)
             {
-                Session["musteri"] = new Musteri() { ad = "Yusuf Aga", soyad = "Kaya", nik = "yusuf", sifre = "123" };
+                Session["musteri"] = new Musteri(sqlSonuc); 
                 return RedirectToAction("Index", "Home");
             }
             else {

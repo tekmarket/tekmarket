@@ -21,7 +21,7 @@ namespace tekmarket_MVC.Models
 
         public bool Open(string Connection = "DefaultConnection") {
             con = new SqlConnection(@WebConfigurationManager.ConnectionStrings[Connection].ToString());
-           
+
             try
             {
                 bool b = true;
@@ -34,7 +34,7 @@ namespace tekmarket_MVC.Models
             catch (SqlException ex) {
                 return false;
             }
-           
+
         }
 
         //close Connection
@@ -45,11 +45,29 @@ namespace tekmarket_MVC.Models
                 state = false;
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 state = false;
                 return false;
             }
+        }
+
+        public bool SqlKomut(string komut) {
+            if (!state)
+            {
+                Open();
+            }
+            SqlCommand sorgu = new SqlCommand(komut, con);
+            try
+            {
+                sorgu.ExecuteNonQuery();
+                Close();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;     
+            } 
+                    
         }
 
         public DataTable SqlSorgu(string komut) {
@@ -57,15 +75,16 @@ namespace tekmarket_MVC.Models
             if (!state) {
                 Open();
             }
-            if (komut[0].ToString().ToLower() != "s")
+            try
             {
-                SqlCommand sorgu = new SqlCommand(komut, con);
-                sorgu.ExecuteNonQuery();
-            }
-            else {
                 SqlDataAdapter adptr = new SqlDataAdapter(komut, con);
                 adptr.Fill(sonuc);
             }
+            catch (SqlException ex) {
+                sonuc = null;
+            }
+            
+            
             Close();
             return sonuc;
         }
