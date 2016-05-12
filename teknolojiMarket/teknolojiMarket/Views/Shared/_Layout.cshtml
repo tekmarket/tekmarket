@@ -1,5 +1,6 @@
 ﻿
 @using teknolojiMarket.Models;
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,16 +88,19 @@
                                 var name = "Ziyaretci";
                                 var bakiye = 0.0;
                                 var sepet = new List<Urun>();
+                                var adres = new List<Adres>();
                                 if (Session["musteri"] != null)
                                 {
                                     var m = Session["musteri"] as Musteri;
                                     name = m.ad;
                                     bakiye = m.bakiye;
                                     sepet = m.sepet;
+                                    adres = m.adresler;
 
                                 }
                                 ViewBag.Ad = name;
                                 ViewBag.Bakiye = bakiye;
+                                ViewBag.Sepet = sepet;
                             }
                         @ViewBag.Ad , 
                             @{
@@ -132,9 +136,9 @@
                                             for (int i = 0; i < sepet.Count; i++)
                                             {
                                             <div class="clearfix">
-                                                <a href="#">@sepet[i].baslik</a> <a href="#">  </a> <span class="theme pull-right">$@sepet[i].fiyat</span>
+                                                <a href="#">@sepet[i].baslik</a> <a href="#">  </a> <span class="theme pull-right">@sepet[i].adet X  $@sepet[i].fiyat</span>
                                             </div>
-                                            toplam += sepet[i].fiyat;
+                                            toplam += sepet[i].fiyat*sepet[i].adet;
                                         }
                                     }
                                     

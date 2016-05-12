@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Checkout";
 }
+@using  teknolojiMarket.Models;
 
 <div class="nomargin">
     <header class="bread prime">
@@ -30,31 +31,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="cart-img pull-left hidden-phone"><img src="img/products/2.jpg" alt=""></div>
-                                        <div class="item pull-left">
-                                            <span><a href="#"><i class="icon-cancel-circled"></i></a> <a href="#">Sample Product Added in Cart</a> <a href="#"><i class="icon-remove-sign"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td><i>$ 98.00</i></td>
-                                    <td><input type="text" class="span1" value="1"></td>
-                                    <td><strong>$ 98.00</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="cart-img pull-left hidden-phone"><img src="img/products/2.jpg" alt=""></div>
-                                        <div class="item pull-left">
-                                            <span><a href="#"><i class="icon-cancel-circled"></i></a> <a href="#">Sample Product Added in Cart</a> <a href="#"><i class="icon-remove-sign"></i></a></span>
-                                        </div>
-                                    </td>
-                                    <td><i>$ 98.00</i></td>
-                                    <td><input type="text" class="span1" value="3"></td>
-                                    <td><strong>$ 98.00</strong></td>
-                                </tr>
+                                @{
+                                                                        
+                                            double toplam = 0;
+                                            for (int i = 0; i < sepet.Count ; i++)
+                                            {
+                                        <tr>
+                                            <td>
+                                                <div class="cart-img pull-left hidden-phone"><img src="@Url.Content("~/Content/img/products/2.jpg")" alt=""></div>
+                                                <div class="item pull-left">
+                                                    <span><a href="#"><i class="icon-cancel-circled"></i></a> <a href="#">@sepet[i].baslik</a> <a href="#"><i class="icon-remove-sign"></i></a></span>
+                                                </div>
+                                            </td>
+                                            <td><i>$ @sepet[i].fiyat</i></td>
+                                            <td><input type="text" class="span1" value="@sepet[i].adet"></td>
+                                            <td><strong>$ @{
+                                                var araToplam = sepet[i].fiyat * sepet[i].adet;
+                                                toplam += araToplam;
+                                        @araToplam
+                                    }</strong></td>
+                                        </tr>
+                                    }
+                                }
+                                
+                               
                                 <tr>
                                     <td colspan="3"><div class="item">Total</div></td>
-                                    <td>$ 248.90</td>
+                                    <td>$ @toplam </td>
                                 </tr>
                             </tbody>
                         </table>

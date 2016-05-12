@@ -17,6 +17,10 @@ namespace teknolojiMarket.Controllers
             return View();
         }
         public ActionResult Checkout() {
+            if (Session["musteri"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
             return View();
         }
 

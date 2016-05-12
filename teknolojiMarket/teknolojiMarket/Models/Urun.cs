@@ -14,6 +14,8 @@ namespace teknolojiMarket.Models
         public double fiyat { get; set; }
         public string resim { get; set; }
         public int stok { get; set; }
+        
+        public int adet { get; set; } //sepette kaç adet var ?
 
         public Urun(System.Data.DataRow dtc) {
             kodu =Convert.ToInt32(dtc["kodu"].ToString());
@@ -23,6 +25,7 @@ namespace teknolojiMarket.Models
             fiyat = Convert.ToDouble(dtc["fiyat"].ToString());
             resim = dtc["resim"].ToString();
             stok = Convert.ToInt32(dtc["stok"].ToString());
+            adet = Convert.ToInt32(dtc["adet"].ToString());
         }
     }
 }

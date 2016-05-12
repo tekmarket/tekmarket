@@ -14,7 +14,7 @@ namespace teknolojiMarket.Models
         public string nik { get; set; }
         public string eposta { get; set; }
         public double bakiye { get; set; }
-
+        public int kullaniciID { get; set; }
         public List<Urun> sepet = new List<Urun>();
         public List<Adres> adresler = new List<Adres>();
 
@@ -26,6 +26,7 @@ namespace teknolojiMarket.Models
             sifre = dt.Rows[0]["sifre"].ToString();
             eposta = dt.Rows[0]["eposta"].ToString();
             bakiye = Convert.ToDouble(dt.Rows[0]["bakiye"].ToString());
+            kullaniciID = Convert.ToInt32(dt.Rows[0]["kullaniciID"].ToString());
         }
         public void sepetDoldur(DataTable dt)
         {
