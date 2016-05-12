@@ -32,10 +32,11 @@
                             </thead>
                             <tbody>
                                 @{
-                                                                        
-                                            double toplam = 0;
-                                            for (int i = 0; i < sepet.Count ; i++)
-                                            {
+                                    var m = Session["musteri"] as Musteri;
+                                    List<Urun> sepet = m.sepet;
+                                    double toplam = 0;
+                                    for (int i = 0; i < sepet.Count ; i++)
+                                    {
                                         <tr>
                                             <td>
                                                 <div class="cart-img pull-left hidden-phone"><img src="@Url.Content("~/Content/img/products/2.jpg")" alt=""></div>

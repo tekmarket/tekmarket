@@ -17,7 +17,7 @@ namespace teknolojiMarket.Controllers
         [HttpPost]
         public ActionResult Login(string inputEmail, string inputPassword)
         {
-            string sqlSorugum = "SELECT * FROM Musteri WHERE nik='" + inputEmail + "';";
+            string sqlSorugum = "SELECT * FROM Musteri WHERE nik='" + inputEmail + "' AND sifre='" + inputPassword + "'" ;
             CodeDB cntrl = new CodeDB();
             DataTable sqlSonuc =  cntrl.SqlSorgu(sqlSorugum);
             if (sqlSonuc!=null)
