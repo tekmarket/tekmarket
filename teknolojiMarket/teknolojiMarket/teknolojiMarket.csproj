@@ -1332,6 +1332,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adres.cs" />
     <Compile Include="Models\CodeDB.cs" />
     <Compile Include="Models\Musteri.cs" />
     <Compile Include="Models\Urun.cs" />
