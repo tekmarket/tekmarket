@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Ana Sayfa";
 }
-
+@using teknolojiMarket.Models;
+@using System.Data;
  
 <div class="homepagecontainer">
     <div class="slides home-span12">
@@ -82,113 +83,30 @@
 
                         <!-- Feat tab -->
                         <div class="tab-pane active" id="feat">
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/1.jpg")" alt="">
-                                    <div class="mask">
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="@Url.Content("~/Content/product.html")" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/2.jpg")" alt="">
-                                    <div class="mask">
+                            @{
+                                string sqlString = "SELECT * from Urun";
+                                CodeDB cdb = new CodeDB();
+                                DataTable dtUrunler = cdb.SqlSorgu(sqlString);
+                                string resimYolu;
+                                for (int i = 0; i < dtUrunler.Rows.Count; i++)
+                                {
+                                    resimYolu = dtUrunler.Rows[i]["resim"].ToString();
+                                    <article class="span4">
+                                        <div class="view view-thumb">
+                                           
+                                            <img src="@Url.Content(resimYolu)" alt="">
+                                            <div class="mask">
+                                                <p>@dtUrunler.Rows[i]["aciklama"].ToString()</p>
+                                                <a href="@Url.Content("~/Content/product.html")" class="info">Sepete Ekle</a> <a href="checkout.html" class="info">Buy</a>
+                                            </div>
+                                        </div>
+                                        <h5>$@dtUrunler.Rows[i]["fiyat"].ToString()</h5>
+                                        <p class="product-title"><a href="#">@dtUrunler.Rows[i]["baslik"].ToString()</a></p>
+                                    </article>
+                                }
 
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/3.jpg")" alt="">
-                                    <div class="mask">
-
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/4.png")" alt="">
-                                    <div class="mask">
-
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/5.jpg")" alt="">
-                                    <div class="mask">
-
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/6.jpg")" alt="">
-                                    <div class="mask">
-
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/7.jpg")" alt="">
-                                    <div class="mask">
-
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/8.jpg")" alt="">
-                                    <div class="mask">
-
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
-                            <article class="span4">
-                                <div class="view view-thumb">
-                                    <img src="@Url.Content("~/Content/img/products/9.jpg")" alt="">
-                                    <div class="mask">
-
-                                        <p>Product description Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                                        <a href="product.html" class="info">View</a> <a href="checkout.html" class="info">Buy</a>
-                                    </div>
-                                </div>
-                                <h5>$465</h5>
-                                <p class="product-title"><a href="#">Sample Featured Product</a></p>
-                            </article>
+                            }
+                            
                         </div>
                     </div> <!-- End tab-content -->
 
