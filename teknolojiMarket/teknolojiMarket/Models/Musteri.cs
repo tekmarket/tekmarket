@@ -16,6 +16,7 @@ namespace teknolojiMarket.Models
         public double bakiye { get; set; }
 
         public List<Urun> sepet = new List<Urun>();
+        public List<Adres> adresler = new List<Adres>();
 
 
         public Musteri(DataTable dt) {
@@ -33,6 +34,14 @@ namespace teknolojiMarket.Models
                 u = new Urun(dt.Rows[i]);
                 sepet.Add(u);
 
+            }
+        }
+
+        public void adresDoldur(DataTable dt) {
+            Adres a;
+            for (int i = 0; i < dt.Rows.Count; i++) {
+                a = new Adres(dt.Rows[i]);
+                adresler.Add(a);       
             }
         }
     }
