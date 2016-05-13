@@ -573,14 +573,14 @@
     <Content Include="Content\img\brands\brand6.jpg" />
     <Content Include="Content\img\brands\brand8.jpg" />
     <Content Include="Content\img\brands\brand9.jpg" />
-    <Content Include="Content\img\brands\branda.jpg" />
-    <Content Include="Content\img\brands\brandb.jpg" />
-    <Content Include="Content\img\brands\brandc.jpg" />
-    <Content Include="Content\img\brands\brandd.jpg" />
-    <Content Include="Content\img\brands\brande.jpg" />
-    <Content Include="Content\img\brands\brandf.jpg" />
-    <Content Include="Content\img\brands\brandg.jpg" />
-    <Content Include="Content\img\brands\brandh.jpg" />
+    <Content Include="Content\img\brands\branda.png" />
+    <Content Include="Content\img\brands\brandb.png" />
+    <Content Include="Content\img\brands\brandc.png" />
+    <Content Include="Content\img\brands\brandd.png" />
+    <Content Include="Content\img\brands\brande.png" />
+    <Content Include="Content\img\brands\brandf.png" />
+    <Content Include="Content\img\brands\brandh.png" />
+    <Content Include="Content\img\brands\brandi.png" />
     <Content Include="Content\img\fancybox_loading.gif" />
     <Content Include="Content\img\fancybox_overlay.png" />
     <Content Include="Content\img\fancybox_sprite.png" />
@@ -1327,6 +1327,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CreateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -1367,7 +1368,6 @@
     <Content Include="Content\Tema\rs-slider\rs-plugin\videojs\font\vjs.ttf" />
     <Content Include="Content\Tema\rs-slider\rs-plugin\videojs\font\vjs.woff" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Login\Create.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1381,6 +1381,7 @@
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Panel.cshtml" />
+    <Content Include="Views\Create\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

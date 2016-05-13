@@ -3,13 +3,7 @@
     ViewBag.Title = "Login";
 }
 
-<div class="nomargin">
-    <header class="bread prime">
-        <div class="container">
-            <h3><i class="icon-level-down"></i>Login</h3>
-        </div>
-    </header>
-</div>
+
 <div class="container">
 
     <!-- Login Section -->
@@ -22,8 +16,8 @@
                 <div class="span6 login-box">
 
                     <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#login"><i class="icon-lock"></i> Returning customer</a></li>
-                        <li><a href="#forgot"><i class="icon-help"></i> Forgot password</a></li>
+                        <li class="active"><a href="#login"><i class="icon-lock"></i> Musteri Girisi</a></li>
+                        <li><a href="#forgot"><i class="icon-help"></i> Parolamı Unuttum</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -33,13 +27,13 @@
                        @using (Html.BeginForm())
                        {
                         <div class="control-group">
-                            <label class="control-label" for="inputEmail"> Email</label>
+                            <label class="control-label" for="inputEmail"> Kullanici Adi</label>
                             <div class="controls">
                                 @Html.TextBox("inputEmail")
                             </div>
                         </div>
                                 <div class="control-group">
-                                    <label class="control-label" for="inputPassword">Password</label>
+                                    <label class="control-label" for="inputPassword">Parola</label>
                                     <div class="controls">
                                        @Html.Password("inputPassword")
                                     </div>
@@ -58,7 +52,7 @@
                         <div class="tab-pane" id="forgot">
                             <form class="form-horizontal">
                                 <div class="control-group">
-                                    <label class="control-label" for="inputEmail"> Email</label>
+                                    <label class="control-label" for="inputEmail"> Eposta</label>
                                     <div class="controls">
                                         <input type="email" id="inputEmail" placeholder="Email">
                                     </div>
@@ -66,7 +60,7 @@
 
                                 <div class="control-group">
                                     <div class="controls">
-                                        <button type="submit" class="btn theme">Retrieve password</button>
+                                        <button type="submit" class="btn theme">Parolamı Kurtar</button>
                                     </div>
                                 </div>
                             </form>
@@ -77,13 +71,13 @@
                 </div>
 
                 <div class="span6 login-box">
-                    <h5><i class="icon-user-add"></i>New Customer</h5>
+                    <h5><i class="icon-user-add"></i>Yeni Kullanıcı</h5>
                     <hr>
                     <p>
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.
+                        Hosgeldiniz. Uye degilseniz yeni bir hesap oluşturmak için aşağıdaki butonu tıklayabilirsiniz.
                     </p><div class="control-group">
                         <div class="controls">
-                            <a href="@Url.Action("Create", "Login")"> <button type="submit" class="btn theme">Create an Account →</button></a>
+                            <a href="@Url.Action("Create", "Create")"> <button type="submit" class="btn theme">Hesap Olustur →</button></a>
                         </div>
                     </div>
                     <p></p>

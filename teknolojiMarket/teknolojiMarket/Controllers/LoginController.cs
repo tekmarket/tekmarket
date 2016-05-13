@@ -10,6 +10,7 @@ namespace teknolojiMarket.Controllers
     public class LoginController : Controller
     {
         // GET: Login
+
         public ActionResult Login()
         {
             return View();
@@ -38,10 +39,10 @@ namespace teknolojiMarket.Controllers
             }
             return View();
         }
-        public ActionResult Create() {
+        
+        
 
-            return View();
-        }
+
         public ActionResult Logout()
         {
             Session["musteri"] = null;
