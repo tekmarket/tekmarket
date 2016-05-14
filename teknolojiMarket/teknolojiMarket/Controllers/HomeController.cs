@@ -11,6 +11,7 @@ namespace teknolojiMarket.Controllers
         // GET: Home
         public ActionResult Index()
         {
+
             if (Session["musteri"] == null) {
                 return RedirectToAction("Login", "Login");
             }

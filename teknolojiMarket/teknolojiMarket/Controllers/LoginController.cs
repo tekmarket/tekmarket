@@ -15,6 +15,7 @@ namespace teknolojiMarket.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Login(string inputEmail, string inputPassword)
         {
@@ -42,9 +43,6 @@ namespace teknolojiMarket.Controllers
             }
             return View();
         }
-        
-        
-
 
         public ActionResult Logout()
         {
