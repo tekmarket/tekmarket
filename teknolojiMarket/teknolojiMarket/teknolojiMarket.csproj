@@ -1339,6 +1339,7 @@
     <Compile Include="Models\CodeDB.cs" />
     <Compile Include="Models\Musteri.cs" />
     <Compile Include="Models\Urun.cs" />
+    <Compile Include="Models\Yonetici.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
