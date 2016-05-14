@@ -90,7 +90,7 @@
                                                 <a href="@Url.Content("~/Content/product.html")" class="info">Sepete Ekle</a> <a href="checkout.html" class="info">Buy</a>
                                             </div>
                                         </div>
-                                        <h5>$@dtUrunler.Rows[i]["fiyat"].ToString()</h5>
+                                        <h5>@dtUrunler.Rows[i]["fiyat"].ToString() TL</h5>
                                         <p class="product-title"><a href="#">@dtUrunler.Rows[i]["baslik"].ToString()</a></p>
                                     </article>
                                 }

@@ -775,8 +775,8 @@ ul.item-team li{margin:0 4px 4px 0;; float: left; width: 32.595%; list-style: no
 .view-thumb button.info {margin-top: -1px;line-height: 20px; }
 .view-thumb.hover img {opacity: 0}
 .view-thumb.hover .mask {opacity: 1}
-.view-thumb p {height: 60px; overflow: hidden}
-.related .view-thumb p, .upsells .view-thumb p {height: 40px}
+.view-thumb p {height: 100px; overflow: hidden}
+.related .view-thumb p, .upsells .view-thumb p {height: 100px}
 .related , .upsells {text-align: center;}
 
 /* Header section */
