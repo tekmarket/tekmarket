@@ -597,6 +597,7 @@
     <Content Include="Content\js\inview.js" />
     <Content Include="Content\js\jquery.cbpQTRotator.js" />
     <Content Include="Content\js\jquery.tweet.js" />
+    <Content Include="Content\js\locationpicker.jquery.js" />
     <Content Include="Content\js\modernizr.custom.js" />
     <Content Include="Content\js\prefixfree.min.js" />
     <Content Include="Content\js\ref-grid.js" />
@@ -1382,6 +1383,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Panel.cshtml" />
     <Content Include="Views\Create\Create.cshtml" />
+    <Content Include="Views\Shared\_LayoutSabit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

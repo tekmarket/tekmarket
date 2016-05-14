@@ -85,7 +85,7 @@
                 <div class="container welcome">
                     <div class="row-fluid">
                         <div class="pull-left greet">
-                            Hosgeldiniz @{ 
+                            Hosgeldiniz @{
                                 var name = "Ziyaretci";
                                 var bakiye = 0.0;
                                 var sepet = new List<Urun>();
@@ -103,7 +103,7 @@
                                 ViewBag.Bakiye = bakiye;
                                 ViewBag.Sepet = sepet;
                             }
-                        @ViewBag.Ad , 
+                            @ViewBag.Ad ,
                             @{
                                 if (Session["musteri"] == null)
                                 {
@@ -113,7 +113,7 @@
                                 {
                                     <a href="@Url.Action("Logout", "Login")">Cikis Yap</a>
                                 }
-                            } 
+                            }
                         </div>
                         <div class="pull-right cart tright">
 
@@ -126,23 +126,23 @@
                                     </div>
                                 }
                             }
-                            
+
 
                             <!-- Bubble Cart Item -->
                             <div class="cartbubble">
 
                                 <div class="arrow-box">
                                     @{
-                                            double toplam = 0;
-                                            for (int i = 0; i < sepet.Count; i++)
-                                            {
+                                        double toplam = 0;
+                                        for (int i = 0; i < sepet.Count; i++)
+                                        {
                                             <div class="clearfix">
                                                 <a href="#">@sepet[i].baslik</a> <a href="#">  </a> <span class="theme pull-right">@sepet[i].adet X  $@sepet[i].fiyat</span>
                                             </div>
-                                            toplam += sepet[i].fiyat*sepet[i].adet;
+                                            toplam += sepet[i].fiyat * sepet[i].adet;
                                         }
                                     }
-                                    
+
                                     <hr />
                                     <!-- Total -->
                                     <div class="clearfix">
@@ -202,11 +202,12 @@
                                         <a href="#">Portföy</a>
                                     </li>
                                     <li>
-                                        <a href="#">E-Ticaret</a></li>
-                                    
+                                        <a href="#">E-Ticaret</a>
+                                    </li>
+
                                     <li><a href="features.html">Özellikler</a></li>
                                     <li>
-                                        <a href="#">Blog</a>  
+                                        <a href="#">Blog</a>
                                     </li>
 
                                     <li>
@@ -227,7 +228,7 @@
         <div class="homepagecontainer">
             @RenderBody()
         </div>
-        
+
 
         <!-- ============== -->
         <!-- Footer section -->
@@ -262,12 +263,12 @@
                             <li><a href="#">LG</a></li>
                             <li><a href="#">Samsung </a></li>
                             <li><a href="#">IPhone</a></li>
-                            
+
                         </ul>
                     </article>
                     <article class="span3">
                         <strong>İletişim</strong>
-                       
+
                         <address class="row-fluid">
                             <div class="pull-left clabel"><i class="icon-location"></i></div>
                             <div class="pull-left cdata">Talas/Kayseri</div>
@@ -336,11 +337,10 @@
     </div>
     <div class="footbg"></div>
 
-   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
-     
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
     <script type="text/javascript" src="@Url.Content("~/Content/js/jquery.tweet.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/js/bootstrap.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Content/js/shop.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/js/script.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/js/SmoothScroll.js")"></script>
 </body>
