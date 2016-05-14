@@ -8,7 +8,7 @@ using System.Data;
 
 
 namespace teknolojiMarket.Controllers
-{
+{//push icin
     public class CreateController : Controller
     {
         // GET: Create
