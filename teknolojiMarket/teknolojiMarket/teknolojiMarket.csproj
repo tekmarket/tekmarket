@@ -1337,6 +1337,7 @@
     </Compile>
     <Compile Include="Models\Adres.cs" />
     <Compile Include="Models\CodeDB.cs" />
+    <Compile Include="Models\MultipleButtonAttribute.cs" />
     <Compile Include="Models\Musteri.cs" />
     <Compile Include="Models\Urun.cs" />
     <Compile Include="Models\Yonetici.cs" />

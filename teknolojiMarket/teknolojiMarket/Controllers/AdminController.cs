@@ -10,6 +10,17 @@ namespace teknolojiMarket.Controllers
 {
     public class AdminController : Controller
     {
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "Save")]
+        public ActionResult Save() {
+            return View();
+        }
+
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "Cancel")]
+        public ActionResult Cancel() {
+            return View();
+        }
         // GET: Adminds
         public ActionResult Index()
         {
