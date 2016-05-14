@@ -36,6 +36,8 @@ namespace teknolojiMarket.Controllers
                 return RedirectToAction("Index", "Home");
             }
             else {
+                
+                ViewData["html"] =@"Kullanıcı adı veya şifre hatalıdır!!";
                 Session["musteri"] = null;
             }
             return View();
