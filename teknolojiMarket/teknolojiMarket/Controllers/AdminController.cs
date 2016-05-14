@@ -8,7 +8,7 @@ namespace teknolojiMarket.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin
+        // GET: Adminds
         public ActionResult Index()
         {
             return View();
