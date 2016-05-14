@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Üye Ol";
+}
+
+
+
+
+<div id="googleMap" style="width:500px;height:380px;"></div>
+
+
+
+
+
+
+
+
+    <div id="register" class="animate form">
+@using (Html.BeginForm()) { 
+    <h1>
+        Sign up
+    </h1>
+    <div class="control-group">
+        <label class="control-label" for="namesignup">Adi</label>
+        <div class="controls">
+            @Html.TextBox("namesignup")
+        </div>
+    </div>
+        <div class="control-group">
+            <label class="control-label" for="surnamesignup">Soyadi</label>
+            <div class="controls">
+                @Html.TextBox("surnamesignup")
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="usernamesignup"> Kullanici Adi</label>
+            <div class="controls">
+                @Html.TextBox("usernamesignup")
+            </div>
+        </div>
+                    <div class="control-group">
+                        <label class="control-label" for="passwordsignup"> Parola</label>
+                        <div class="controls">
+                            @Html.Password("passwordsignup")
+                        </div>
+                    </div>
+                        <div class="control-group">
+                            <label class="control-label" for="emailsignup">Email</label>
+                            <div class="controls">
+                                @Html.TextBox("emailsignup")
+                            </div>
+                        </div>
+
+
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="submit" class="btn theme" value="Kayıt ol" />
+                                    <!-- <button type="submit" class="btn theme">Login</button> -->
+                                </div>
+                            </div>
+
+
+
+
+
+}
+</div>
