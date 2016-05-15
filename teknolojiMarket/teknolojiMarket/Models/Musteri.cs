@@ -33,6 +33,7 @@ namespace teknolojiMarket.Models
         }
         public void sepetDoldur(DataTable dt)
         {
+            sepet = new List<Urun>();
             Urun u;
             for (int i=0;i<dt.Rows.Count;i++) {
                 u = new Urun(dt.Rows[i]);

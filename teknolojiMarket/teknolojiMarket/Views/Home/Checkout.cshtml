@@ -3,6 +3,7 @@
     ViewBag.Title = "Checkout";
 }
 @using  teknolojiMarket.Models;
+@using System.Data;
 
 <div class="nomargin">
     <header class="bread prime">
@@ -33,15 +34,19 @@
                             <tbody>
                                 @{
                                     var m = Session["musteri"] as Musteri;
+                                    string sqlString = "SELECT * FROM Sepet WHERE Musteri_kullaniciID="+m.kullaniciID+"";
+                                    CodeDB cdb2 = new CodeDB();
+                                    DataTable dtSepet = cdb2.SqlSorgu(sqlString);
+
                                     List<Urun> sepet = m.sepet;
                                     double toplam = 0;
-                                    for (int i = 0; i < sepet.Count ; i++)
+                                    for (int i = 0; i < dtSepet.Rows.Count; i++)
                                     {
                                         <tr>
                                             <td>
                                                 <div class="cart-img pull-left hidden-phone"><img src="@Url.Content(@sepet[i].resim)" alt=""></div>
                                                 <div class="item pull-left">
-                                                    <span><a href="#"><i class="icon-cancel-circled"></i></a> <a href="#">@sepet[i].baslik</a> <a href="#"><i class="icon-remove-sign"></i></a></span>
+                                                    <span>@Html.ActionLink(" ", "SEkle2", new { uid = Convert.ToInt32(dtSepet.Rows[i]["Urun_kodu"].ToString()) }, new { @class = "icon-cancel-circled" }) <a href="#">@sepet[i].baslik</a> <a href="#"><i class="icon-remove-sign"></i></a></span>
                                                 </div>
                                             </td>
                                             <td><i>$ @sepet[i].fiyat</i></td>

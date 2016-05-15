@@ -73,27 +73,42 @@
 
                         <!-- Feat tab -->
                         <div class="tab-pane active" id="feat">
-                            @{
-                                string sqlString = "SELECT * from Urun";
+                            @{ string sqlString = "SELECT * from Urun";
                                 CodeDB cdb = new CodeDB();
                                 DataTable dtUrunler = cdb.SqlSorgu(sqlString);
                                 string resimYolu;
+
+
+
+
                                 for (int i = 0; i < dtUrunler.Rows.Count; i++)
                                 {
+
+
+
+                                           <!-- Session["hop"]= Convert.ToInt32(dtUrunler.Rows[i]["kodu"].ToString());-->
                                     resimYolu = dtUrunler.Rows[i]["resim"].ToString();
                                     <article class="span4">
                                         <div class="view view-thumb">
-                                           
+
                                             <img src="@Url.Content(resimYolu)" alt="">
                                             <div class="mask">
+
                                                 <p>@dtUrunler.Rows[i]["aciklama"].ToString()</p>
-                                                <a href="@Url.Content("~/Content/product.html")" class="info">Sepete Ekle</a> <a href="checkout.html" class="info">Buy</a>
+                                                @Html.ActionLink("Sepete Ekle", "SEkle", new { uid = Convert.ToInt32(dtUrunler.Rows[i]["kodu"].ToString())}, new { @class = "info" });
+                                                
+                                                   <a href="checkout.html" class="info">Buy</a>
+
+                                               
+
+
                                             </div>
                                         </div>
                                         <h5>@dtUrunler.Rows[i]["fiyat"].ToString() TL</h5>
                                         <p class="product-title"><a href="#">@dtUrunler.Rows[i]["baslik"].ToString()</a></p>
                                     </article>
                                 }
+
 
                             }
                             
