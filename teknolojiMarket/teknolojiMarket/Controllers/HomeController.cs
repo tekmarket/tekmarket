@@ -41,6 +41,16 @@ namespace teknolojiMarket.Controllers
             {
                 return RedirectToAction("Login", "Login");
             }
+            var m = Session["musteri"] as Musteri;
+            List<Adres> adres = m.adresler;
+            IEnumerable<SelectListItem> list = from k in adres
+                          select new SelectListItem
+                        {
+                                        Value = k.adres_id.ToString(),
+                            Text = k.baslik,
+                      };
+            ViewData["dropdown"] = list;
+        
             return View();
         }
         public ActionResult AdresEkle()

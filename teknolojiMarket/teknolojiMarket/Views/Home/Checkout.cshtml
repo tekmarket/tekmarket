@@ -38,6 +38,7 @@
                                     CodeDB cdb2 = new CodeDB();
                                     DataTable dtSepet = cdb2.SqlSorgu(sqlString);
                                     List<Urun> sepet = m.sepet;
+                                    List<Adres> adres = m.adresler;
                                     double toplam = 0;
                                     for (int i = 0; i < dtSepet.Rows.Count; i++)
                                     {
@@ -69,6 +70,15 @@
                         @{ }
                         <div class="row-fluid cart-pay">
                             <div class="span6"> <br>
+
+   
+
+    @Html.DropDownList("dropdown","Seç")
+
+   
+
+
+
    </div>
                             <div class="span6 cart-checkout"><button class="btn"><i class="icon-arrows-ccw"></i> Update Cart</button> <button class="btn theme"><i class="icon-check"></i> Check Out </button></div>
                         </div>
