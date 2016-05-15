@@ -3,6 +3,69 @@
     ViewBag.Title = "Panel";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-    <div> 
-        URUN EKLEME SAYFASI
-    </div>
+
+<table class="auto-style1">
+    @using (Html.BeginForm("Upload", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <tr>
+            <td>&nbsp;</td>
+            <td>Başlık</td>
+            <td>
+                @Html.TextBox("tbBaslik")
+                
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Açıklama</td>
+            <td>
+                @Html.TextArea("taAciklama")
+                
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Marka</td>
+            <td>
+                @Html.TextBox("tbMarka")
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Fiyat</td>
+            <td>
+                @Html.TextBox("tbFiyat") TL
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Resim</td>
+            <td>
+                <input id="File1" name="file" type="file" />
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>Stok</td>
+            <td>
+               @Html.TextBox("tbStok")
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>
+                <input id="Submit1" type="submit" value="Kaydet" />
+                @ViewBag.isUploaded
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    }
+
+</table>

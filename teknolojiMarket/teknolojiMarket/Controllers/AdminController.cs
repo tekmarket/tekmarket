@@ -150,6 +150,20 @@ namespace teknolojiMarket.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        public ActionResult urunsil(string urunid) {
+            string sqlQuery = "DELETE FROM Urun WHERE kodu = " + urunid;
+            CodeDB cdb = new CodeDB();
+            if (cdb.SqlKomut(sqlQuery))
+            {
+                ViewBag.silindi = "ürün silindi ";
+            }
+            else {
+                ViewBag.silindi = "Böyle bir ürün yok";
+            }
+            return View();
+        }
         // GET: Adminds
         public ActionResult Index()
         {
@@ -183,6 +197,39 @@ namespace teknolojiMarket.Controllers
         public ActionResult Logout() {
             Session["yonetici"] = null;
             return RedirectToAction("Index", "Admin");
+        }
+
+        public ActionResult Upload(HttpPostedFileBase file,string tbBaslik,string taAciklama, string tbMarka,string tbFiyat,string tbStok) {
+            string sqlQuery = "INSERT INTO Urun(baslik, aciklama, marka,fiyat, resim, stok) ";
+            sqlQuery += "VALUES('" +tbBaslik+"','"+taAciklama+"','"+tbMarka+"'," + Convert.ToDouble(tbFiyat)+",'x',"+Convert.ToInt32(tbStok)+")";
+            CodeDB cdb = new CodeDB();
+            if (cdb.SqlKomut(sqlQuery))
+            {
+                sqlQuery = "Select kodu From Urun WHERE baslik='" + tbBaslik + "' AND resim='x' ";
+                DataTable dt = new DataTable();
+                dt = cdb.SqlSorgu(sqlQuery);
+                if (dt.Rows.Count != 0)
+                {
+                    string urunid = dt.Rows[0]["kodu"].ToString();
+                    string yol = "~/Content/img/products/" + urunid + file.FileName;
+                    string path = Server.MapPath(yol);
+                    file.SaveAs(path);
+                    sqlQuery = "UPDATE Urun SET resim='" + yol + "' WHERE kodu="+urunid;
+                    cdb.SqlKomut(sqlQuery);
+                    ViewBag.isUploaded = "Ürün Kaydedildi";
+
+
+                }
+                else {
+                    ViewBag.isUploaded = "Ürün kaydedilemedi";
+                }
+            
+            }
+            else {
+                ViewBag.isUploaded = "Ürün kaydedilemedi";
+            }
+            
+            return RedirectToAction("urunek", "Admin");
         }
     }
 }
