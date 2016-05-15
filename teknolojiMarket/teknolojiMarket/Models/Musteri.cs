@@ -17,7 +17,7 @@ namespace teknolojiMarket.Models
         public int kullaniciID { get; set; }
         public List<Urun> sepet = new List<Urun>();
         public List<Adres> adresler = new List<Adres>();
-
+        public List<Siparis> siparisler = new List<Siparis>();
 
         public Musteri(DataTable dt) {
             if (dt.IsInitialized && dt!=null) {

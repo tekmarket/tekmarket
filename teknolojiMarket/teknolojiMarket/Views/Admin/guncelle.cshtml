@@ -1,8 +1,59 @@
 ﻿
 @{
-    ViewBag.Title = "Panel";
+    ViewBag.Title = "Sipariş güncelle";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-    <div> 
-        URUN GÜNCELLEME SAYFASI
-    </div>
+@using teknolojiMarket.Models;
+
+
+<table>
+
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <td>&nbsp;</td>
+            <td>Sipariş kodu</td>
+            <td>
+                @Html.TextBox("tbSkod")
+                <input type="submit" name="btdgetir" value="Bul" />
+                @ViewData["sbul"]
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        if (Session["siparis"] != null)
+        {
+            Siparis s;
+            s = Session["siparis"] as Siparis;
+            <tr>
+                <td>&nbsp;</td>
+                <td>tutar</td>
+                <td>@s.tutar TL</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>sipariş kodu</td>
+                <td>@s.siparisKodu</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>tarih</td>
+                <td>@s.tarih</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Güncel Durum</td>
+                <td>
+                    @Html.TextBox("tbdurum",s.durum)
+                    <input name="btdgunc" type="submit" value="Güncelle" />
+                    @ViewData["isupdurum"]
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        }
+
+    }
+
+</table>

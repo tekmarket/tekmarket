@@ -72,6 +72,7 @@ namespace teknolojiMarket.Controllers
             return View();
         }
 
+
         public ActionResult urunek() {
             if (Session["yonetici"] == null)
             {
@@ -86,6 +87,58 @@ namespace teknolojiMarket.Controllers
             {
                 return RedirectToAction("Index", "Admin");
             }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult guncelle(string tbdurum,string tbSkod)
+        {
+            CodeDB cdb = new CodeDB();
+            DataTable dt;
+            Siparis s;
+            if (Session["yonetici"] == null)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            if (Request.Form["btdgetir"] != null) {
+                ViewData["isupdurum"] = "";
+                string sqlQuery = "SELECT * from Siparis Where siparisKodu=" + tbSkod;
+                dt = cdb.SqlSorgu(sqlQuery);
+                if (dt.Rows.Count != 0)
+                {
+                    @ViewData["sbul"] = "";
+                    s = new Siparis(dt);
+                    Session["siparis"] = s;
+                }
+                else {
+                    @ViewData["sbul"] = "sipariş bulunamadı";
+                    
+                    Session["siparis"] = null;
+                }
+            } else if (Request.Form["btdgunc"] != null) {
+                if (Session["siparis"] != null)
+                {
+                    ViewData["isupdurum"] = "";
+                    s = Session["siparis"] as Siparis;
+                    string sqlQuery = "UPDATE Siparis SET durum ='" + tbdurum + "'";
+                    if (cdb.SqlKomut(sqlQuery))
+                    {
+                        ViewData["isupdurum"] = "işlem Başarılı";
+                        s.durum = tbdurum;
+                        Session["siparis"] = s;
+
+                    }
+                    else {
+                        ViewData["isupdurum"] = "işlem başarısız";
+                    }
+                }
+                else {
+                    @ViewData["isupdurum"] = "işlem başarısız";
+                }
+            }
+            
+
             return View();
         }
 
@@ -126,6 +179,10 @@ namespace teknolojiMarket.Controllers
                 return RedirectToAction("Index", "Admin");
             }
             return View();
+        }
+        public ActionResult Logout() {
+            Session["yonetici"] = null;
+            return RedirectToAction("Index", "Admin");
         }
     }
 }
