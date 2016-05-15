@@ -3,9 +3,143 @@
     ViewBag.Title = "Panel";
     Layout = null;
 }
+<!DOCTYPE html>
 
-<h2>Panel</h2>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/style.css")" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
 
-KULLANICIYA BAKİYE EKLE
+        .auto-style5 {
+            width: 212px;
+        }
 
-YENİ ÜRÜN EKLE
+        .auto-style3 {
+            width: 227px;
+        }
+
+        .auto-style2 {
+            width: 207px;
+            height: 56px;
+        }
+
+        .auto-style7 {
+            width: 369px;
+        }
+
+        .auto-style15 {
+            width: 212px;
+            height: 23px;
+        }
+
+        .auto-style9 {
+            width: 383px;
+        }
+
+        .auto-style16 {
+            height: 23px;
+        }
+
+        .auto-style6 {
+            height: 243px;
+            width: 212px;
+        }
+
+        .auto-style4 {
+            height: 243px;
+        }
+
+        .auto-style17 {
+            width: 535px;
+            height: 26px;
+        }
+
+        .auto-style18 {
+            width: 383px;
+            height: 26px;
+        }
+
+        .auto-style19 {
+            width: 535px;
+            height: 30px;
+        }
+
+        .auto-style20 {
+            width: 383px;
+            height: 30px;
+        }
+
+        .auto-style21 {
+            width: 194px;
+            height: 112px;
+        }
+
+        .auto-style22 {
+            width: 535px;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="auto-style1">
+        <tr>
+            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style3">
+                <img alt="" class="auto-style2" src="@Url.Content("~/Content/img/highreslogo.png")" />
+            </td>
+            <td class="auto-style7"><h1>Admin Paneli</h1></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style15"></td>
+            <td colspan="2" rowspan="3">
+                <table class="auto-style1">
+                    <tr>
+                        <td class="auto-style19">&nbsp;</td>
+                        <td class="auto-style20">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    
+                        <tr>
+                            <td class="auto-style17">
+                                <div class="btn theme">
+                                    @Html.ActionLink("Bakiye Yükle", "ekbakiye", "Admin")
+                                </div>
+                                
+                              
+                            <td class="auto-style18">
+                                @Html.ActionLink("Ürün ekle", "urunek", "Admin")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style22">
+                                @Html.ActionLink("Siparis Güncelle", "guncelle", "Admin") 
+                            </td>
+                            <td class="auto-style9">
+                                @Html.ActionLink("Ürün Çıkar", "urunsil", "Admin")
+                            </td>
+                        </tr>
+                    
+                    
+                </table>
+            </td>
+            <td class="auto-style16"></td>
+        </tr>
+        <tr>
+            <td class="auto-style5">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style6"></td>
+            <td class="auto-style4"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

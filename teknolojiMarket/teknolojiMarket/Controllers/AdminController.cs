@@ -10,15 +10,38 @@ namespace teknolojiMarket.Controllers
 {
     public class AdminController : Controller
     {
-        [HttpPost]
-        [MultipleButton(Name = "action", Argument = "Save")]
-        public ActionResult Save() {
+
+        public ActionResult ekbakiye() {
+            if (Session["yonetici"] == null)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
             return View();
         }
 
-        [HttpPost]
-        [MultipleButton(Name = "action", Argument = "Cancel")]
-        public ActionResult Cancel() {
+        public ActionResult urunek() {
+            if (Session["yonetici"] == null)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            return View();
+        }
+
+        public ActionResult guncelle()
+        {
+            if (Session["yonetici"] == null)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            return View();
+        }
+
+        public ActionResult urunsil()
+        {
+            if (Session["yonetici"] == null)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
             return View();
         }
         // GET: Adminds
@@ -46,6 +69,9 @@ namespace teknolojiMarket.Controllers
         }
         public ActionResult Panel()
         {
+            if (Session["yonetici"] == null) {
+                return RedirectToAction("Index", "Admin");
+            }
             return View();
         }
     }
