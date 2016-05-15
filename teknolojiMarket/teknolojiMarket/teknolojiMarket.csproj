@@ -1386,6 +1386,7 @@
     <Content Include="Views\Admin\Panel.cshtml" />
     <Content Include="Views\Create\Create.cshtml" />
     <Content Include="Views\Shared\_LayoutSabit.cshtml" />
+    <Content Include="Views\Home\AdresEkle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
