@@ -37,7 +37,6 @@
                                     string sqlString = "SELECT * FROM Sepet WHERE Musteri_kullaniciID="+m.kullaniciID+"";
                                     CodeDB cdb2 = new CodeDB();
                                     DataTable dtSepet = cdb2.SqlSorgu(sqlString);
-
                                     List<Urun> sepet = m.sepet;
                                     double toplam = 0;
                                     for (int i = 0; i < dtSepet.Rows.Count; i++)

@@ -1393,6 +1393,7 @@
     <Content Include="Views\Admin\urunsil.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\deneme.cshtml" />
+    <Content Include="Views\Home\SiparisTakip.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

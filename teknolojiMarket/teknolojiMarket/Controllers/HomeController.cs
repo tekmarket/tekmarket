@@ -139,6 +139,37 @@ namespace teknolojiMarket.Controllers
             return RedirectToAction("Checkout", "Home");
 
         }
+
+        public ActionResult SiparisTakip()
+        {
+            if (Session["musteri"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                
+               
+
+                Musteri m = Session["musteri"] as Musteri;
+                string sqlSorugum = "SELECT S.tutar,S.durum,S.tarih,U.baslik FROM Siparis S,Icerir I, Urun U WHERE I.urun_kodu=U.kodu ";
+                sqlSorugum += "AND S.musteriID = " + m.kullaniciID;
+                DataTable sqlSonuc = new DataTable();
+                CodeDB cntrl = new CodeDB();
+                sqlSonuc = cntrl.SqlSorgu(sqlSorugum);
+                if (sqlSonuc.Rows.Count != 0) {
+                for (int i=0;i<sqlSonuc.Rows.Count;i++) { 
+                    ViewData["a"] +=" "+ sqlSonuc.Rows[i]["durum"].ToString();
+                    ViewData["a"] +=" "+ sqlSonuc.Rows[i]["baslik"].ToString();
+                    ViewData["a"] += " " + sqlSonuc.Rows[i]["tarih"].ToString();
+                    ViewData["a"] += " " + sqlSonuc.Rows[i]["tutar"].ToString();
+                    ViewData["a"] += " " + "\n";
+                } }
+            }
+            return View();
+
+            
+        }
       
 
 
