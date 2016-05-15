@@ -44,6 +44,7 @@ namespace teknolojiMarket.Models
 
         public void adresDoldur(DataTable dt) {
             Adres a;
+            adresler = new List<Adres>();
             for (int i = 0; i < dt.Rows.Count; i++) {
                 a = new Adres(dt.Rows[i]);
                 adresler.Add(a);       
