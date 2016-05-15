@@ -3,13 +3,11 @@
     ViewBag.Title = "Panel";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
                 <table class="auto-style1">
                     <tr>
                         <td class="auto-style8">&nbsp;</td>
                         <td class="auto-style9">&nbsp;</td>
-                    </tr>
-                   
+                    </tr>                  
     @using (Html.BeginForm())
     {
         <tr>
@@ -18,20 +16,20 @@
                 @Html.TextBox("adminNik")
             </td>
         </tr>
-                        <tr>
-                            <td class="auto-style8">Şifre</td>
-                            <td class="auto-style9">
-                              @Html.Password("adminPass")
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="auto-style8">&nbsp;</td>
-                            <td class="auto-style9">
-                                <input id="Button1" class="auto-style11" type="submit" value="Giriş" />
-                            </td>
-                        </tr>
+        <tr>
+            <td class="auto-style8">Şifre</td>
+            <td class="auto-style9">
+              @Html.Password("adminPass")
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style8">&nbsp;</td>
+            <td class="auto-style9">
+                <input id="Button1" class="auto-style11" type="submit" value="Giriş" />
+            </td>
+        </tr>
 
     }
-                        
+              
                 </table>
        

@@ -18,6 +18,59 @@ namespace teknolojiMarket.Controllers
             }
             return View();
         }
+        [HttpPost]
+        public ActionResult ekbakiye(string kullaniciID, string eklenecek)
+        {
+            CodeDB cdb = new CodeDB();
+            DataTable dt;
+            Musteri m;
+            if (Session["yonetici"] == null)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
+            string sqlQuery;
+            if (Request.Form["btgetir"] != null)
+            {
+                ViewData["isguncel"]="";
+                sqlQuery = "select * from  Musteri where nik = '" + kullaniciID + "'";
+                dt = cdb.SqlSorgu(sqlQuery);
+                if (dt.Rows.Count == 0)
+                {
+                    Session["kullanici"] = null;
+                    ViewData["kbul"] = "kullanıcı bulunamadı !";
+                }
+                else {
+                    ViewData["kbul"] = "";
+                   m = new Musteri(dt);
+                    Session["kullanici"] = m;
+                }
+
+            }
+            else if(Request.Form["btek"] != null) {
+
+                int yenibakiye;
+                if (Session["kullanici"] != null && Int32.TryParse(eklenecek,out yenibakiye)) {
+                    m = Session["kullanici"] as Musteri;
+                    m.bakiye = yenibakiye;
+                    sqlQuery = "UPDATE Musteri SET bakiye =" +m.bakiye + "where kullaniciID="+m.kullaniciID;
+                    Session["kullanici"] = m;
+                    if (cdb.SqlKomut(sqlQuery))
+                    {
+                        ViewData["isguncel"] = "bakiye güncellendi";
+                    }
+                    else {
+                        ViewData["isguncel"] = "işlem gerçekleştrilemedi !";
+                    }
+
+                }
+                else
+                {
+                    ViewData["isguncel"] = "işlem gerçekleştrilemedi !";
+                }
+            }
+            return View();
+        }
 
         public ActionResult urunek() {
             if (Session["yonetici"] == null)
