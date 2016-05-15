@@ -3,6 +3,7 @@
     Layout = null;
 }
 
+@using teknolojiMarket.Models;
 
 <!DOCTYPE html>
 
@@ -160,16 +161,25 @@
         <tr>
             <td class="auto-style5">&nbsp;</td>
             <td class="auto-style3">
-                <a href="@Url.Action("Panel","Admin")">
+                <a href="@Url.Action("Panel", "Admin")">
                     <img alt="" class="auto-style2" src="@Url.Content("~/Content/img/highreslogo.png")" />
                 </a>
                 
             </td>
             <td class="auto-style7"><h1>Admin Paneli</h1></td>
-            <td>&nbsp;</td>
+            <td>@{
+                if (Session["yonetici"] != null)
+                {
+                    Yonetici y = Session["Yonetici"] as Yonetici;
+                    @(y.adi + " " + y.soyadi)
+                    <a href="@Url.Action("Logout", "Admin")"> Çıkış Yap</a>
+                }
+            }</td>
         </tr>
         <tr>
-            <td class="auto-style15"></td>
+            <td class="auto-style15">
+           
+            </td>
             <td colspan="2" rowspan="3">
            @RenderBody()
             </td>
