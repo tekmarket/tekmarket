@@ -1,4 +1,9 @@
-﻿/* Font Colors */
+﻿
+.takip tr td {
+    padding-right: 20px;
+}
+
+/* Font Colors */
 
 body {color:#333}
 a {color:black}

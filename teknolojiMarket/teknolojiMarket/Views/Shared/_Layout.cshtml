@@ -122,7 +122,7 @@
                                 if (Session["musteri"] != null)
                                 {
                                     <div class="counter">
-                                        <a href="javascript:void(0);"><i class="icon-basket"></i> Sepetiniz </a> : <span class="theme">$@ViewBag.Bakiye</span>
+                                        <a href="javascript:void(0);"><i class="icon-basket"></i> Sepetiniz </a>  <span class="theme">-- Bakiye: @ViewBag.Bakiye TL</span>
                                     </div>
                                 }
                             }
@@ -146,12 +146,12 @@
                                     <hr />
                                     <!-- Total -->
                                     <div class="clearfix">
-                                        TOTAL <span class="theme pull-right">$@toplam</span>
+                                        TOPLAM <span class="theme pull-right">$@toplam</span>
                                     </div>
                                     <hr />
                                     <div class="clearfix">
-                                        <a href="javascript:void(0)" id="closeit">Close</a>
-                                        <a href="@Url.Action("Checkout","Home")" class="btn theme btn-mini pull-right">Checkout</a>
+                                        <a href="javascript:void(0)" id="closeit">Kapat</a>
+                                        <a href="@Url.Action("Checkout","Home")" class="btn theme btn-mini pull-right">Sepete Git</a>
                                     </div>
                                 </div>
 

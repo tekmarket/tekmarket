@@ -9,7 +9,9 @@
     <header class="bread prime">
         <div class="container">
             <h3><i class="icon-level-down"></i>Checkout</h3>
+           <h5 style="color:red;">@Session["siparisSon"]</h5> 
         </div>
+
     </header>
 </div>
 
@@ -49,13 +51,13 @@
                                                     <span>@Html.ActionLink(" ", "SEkle2", new { uid = Convert.ToInt32(dtSepet.Rows[i]["Urun_kodu"].ToString()) }, new { @class = "icon-cancel-circled" }) <a href="#">@sepet[i].baslik</a> <a href="#"><i class="icon-remove-sign"></i></a></span>
                                                 </div>
                                             </td>
-                                            <td><i>$ @sepet[i].fiyat</i></td>
+                                            <td><i>@sepet[i].fiyat TL</i></td>
                                             <td><input type="text" class="span1" value="@sepet[i].adet"></td>
-                                            <td><strong>$ @{
+                                            <td><strong> @{
                                                 var araToplam = sepet[i].fiyat * sepet[i].adet;
                                                 toplam += araToplam;
-                                        @araToplam
-                                    }</strong></td>
+                                        @araToplam 
+                                    }TL</strong></td>
                                         </tr>
                                     }
                                 }
@@ -63,24 +65,34 @@
                                
                                 <tr>
                                     <td colspan="3"><div class="item">Total</div></td>
-                                    <td>$ @toplam </td>
+                                    <td> @toplam TL </td>
                                 </tr>
                             </tbody>
                         </table>
-                        @{ }
+                       
                         <div class="row-fluid cart-pay">
                             <div class="span6"> <br>
 
    
 
-    @Html.DropDownList("dropdown","Seç")
+    
 
    
 
 
 
    </div>
-                            <div class="span6 cart-checkout"><button class="btn"><i class="icon-arrows-ccw"></i> Update Cart</button> <button class="btn theme"><i class="icon-check"></i> Check Out </button></div>
+                            <div class="span6 cart-checkout"><button class="btn"><i class="icon-arrows-ccw"></i> Update Cart</button> 
+                            @using (Html.BeginForm())
+                            {
+                                @Html.DropDownList("dropdown", "Seç")
+                                 @Html.ActionLink("Siparişi Tamamla", "Tamamla", null, new { @class = "btn theme" });
+                             
+                            }
+                           <!-- <button class="btn theme"><i class="icon-check"></i> Check Out </button> --> 
+                               
+                            <br />
+                            </div>
                         </div>
                     </form>
                 </div>

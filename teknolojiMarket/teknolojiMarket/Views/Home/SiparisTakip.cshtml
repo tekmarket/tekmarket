@@ -3,7 +3,7 @@
     ViewBag.Title = "SiparisTakip";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@using System.Data;
 <div class="nomargin">
     <header class="bread prime">
         <div class="container">
@@ -12,7 +12,70 @@
     </header>
 </div>
 
+<table class="takip" style="margin-left:50px;">
+    <tr><td>
+        Sipariş Kodu
+        </td>
+        <td>
+            Sipariş Durumu
+        </td>
+        <td>
+            Ürünler
+        </td>
+        <td>
+            Tarih
+        </td>
+        <td>
+            Sipariş Tutarı
+        </td>
+    </tr>
+    <tr style="width:10px;background-color:darkgray;">
+        <td colspan="5"></td>
+    </tr>
 
-@ViewData["a"]
+    @{
+        DataTable dt = ViewData["siparisler"] as DataTable;
+        string sid = "";
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+
+            <tr>
+                <td>
+                    @dt.Rows[i]["siparisKodu"]
+                </td>
+                <td>
+                    @dt.Rows[i]["durum"]
+                </td>
+                <td>
+                    @{
+                        do
+                        {
+                            @dt.Rows[i]["baslik"] <br />
+                            sid = dt.Rows[i]["siparisKodu"].ToString();
+                            i++;
+                            if (i == dt.Rows.Count) {                           
+                                break;
+                            }
+
+
+                        } while (dt.Rows[i]["siparisKodu"].ToString().Equals(sid));
+                        i--;
+                    } 
+                       
+                </td>
+                <td>
+                    @dt.Rows[i]["tarih"]
+                </td>
+                <td>
+                    @dt.Rows[i]["tutar"] TL
+                </td>
+            </tr>
+            <tr style="width:10px;background-color:darkgray;">
+                <td colspan="5"></td>
+            </tr>
+            
+        }
+    }
+</table>
 
 <br /> <br />

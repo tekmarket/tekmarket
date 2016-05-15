@@ -8,98 +8,96 @@
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
 <script src="@Url.Content("~/Content/js/locationpicker.jquery.js") "></script>
+<table style="margin-left:50px;">
 
+    <tr><td>
 
+    <div id="register" class="animate form">
+        @using (Html.BeginForm())
+        {
+            <h1>
+                Sign up
+            </h1>
+            <!-- string yaz = "Location:";
+                <input type = "text" id = "us2address" style = "width: 430px" />
 
+               yaz = "Lat.:";
+                <div id="us2" style="width: 500px; height: 400px;"></div>
+            <input type = "text" id = "us2lat" />
+               yaz = "Long.:";
+                <input type = "text" id = "us2lon" />-->
 
-
-
-
-
-<div id="register" class="animate form">
-    @using (Html.BeginForm())
-    {
-        <h1>
-            Sign up
-        </h1>
-        <!-- string yaz = "Location:";
-            <input type = "text" id = "us2address" style = "width: 430px" />
-
-           yaz = "Lat.:";
+            <div class="control-group">
+                <label class="control-label" for="us2address">Adres</label>
+                <div class="controls">
+                    @Html.TextBox("us2address")
+                </div>
+            </div>
             <div id="us2" style="width: 500px; height: 400px;"></div>
-        <input type = "text" id = "us2lat" />
-           yaz = "Long.:";
-            <input type = "text" id = "us2lon" />-->
-
-        <div class="control-group">
-            <label class="control-label" for="us2address">Adres</label>
-            <div class="controls">
-                @Html.TextBox("us2address")
+            <div class="control-group">
+                <label class="control-label" for="us2lat">Enlem</label>
+                <div class="controls">
+                    @Html.TextBox("us2lat")
+                </div>
             </div>
-        </div>
-        <div id="us2" style="width: 500px; height: 400px;"></div>
-        <div class="control-group">
-            <label class="control-label" for="us2lat">Enlem</label>
-            <div class="controls">
-                @Html.TextBox("us2lat")
+            <div class="control-group">
+                <label class="control-label" for="us2lon">Boylam</label>
+                <div class="controls">
+                    @Html.TextBox("us2lon")
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="us2lon">Boylam</label>
-            <div class="controls">
-                @Html.TextBox("us2lon")
-            </div>
-        </div>
 
 
 
-        <div class="control-group">
-            <label class="control-label" for="us2lon">Adi</label>
-            <div class="controls">
-                @Html.TextBox("namesignup")
+            <div class="control-group">
+                <label class="control-label" for="us2lon">Adi</label>
+                <div class="controls">
+                    @Html.TextBox("namesignup")
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="surnamesignup">Soyadi</label>
-            <div class="controls">
-                @Html.TextBox("surnamesignup")
+            <div class="control-group">
+                <label class="control-label" for="surnamesignup">Soyadi</label>
+                <div class="controls">
+                    @Html.TextBox("surnamesignup")
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="usernamesignup"> Kullanici Adi</label>
-            <div class="controls">
-                @Html.TextBox("usernamesignup")
+            <div class="control-group">
+                <label class="control-label" for="usernamesignup"> Kullanici Adi</label>
+                <div class="controls">
+                    @Html.TextBox("usernamesignup")
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="passwordsignup"> Parola</label>
-            <div class="controls">
-                @Html.Password("passwordsignup")
+            <div class="control-group">
+                <label class="control-label" for="passwordsignup"> Parola</label>
+                <div class="controls">
+                    @Html.Password("passwordsignup")
+                </div>
             </div>
-        </div>
+            <div class="control-group">
+                <label class="control-label" for="emailsignup">Email</label>
+                <div class="controls">
+                    @Html.TextBox("emailsignup")
+                </div>
+            </div>
+
+
                     <div class="control-group">
-                        <label class="control-label" for="emailsignup">Email</label>
                         <div class="controls">
-                            @Html.TextBox("emailsignup")
+                            <input type="submit" class="btn theme" value="Kayıt ol" />
+                            >@Session["html1"]
+                            <!-- <button type="submit" class="btn theme">Login</button> -->
                         </div>
                     </div>
 
 
-                        <div class="control-group">
-                            <div class="controls">
-                                <input type="submit" class="btn theme" value="Kayıt ol" />
-                                >@Session["html1"]
-                                <!-- <button type="submit" class="btn theme">Login</button> -->
-                            </div>
-                        </div>
 
 
 
 
-
-
-    }
-</div>
+        }
+    </div>
+        </td></tr>
+</table>
 <script>
 $('#us2').locationpicker({
     location: { latitude: 38.720957122705194, longitude: 35.48629593849182 },

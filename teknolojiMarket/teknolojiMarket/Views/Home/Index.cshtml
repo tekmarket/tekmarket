@@ -97,7 +97,8 @@
                                                 <p>@dtUrunler.Rows[i]["aciklama"].ToString()</p>
                                                 @Html.ActionLink("Sepete Ekle", "SEkle", new { uid = Convert.ToInt32(dtUrunler.Rows[i]["kodu"].ToString())}, new { @class = "info" });
                                                 
-                                                   <a href="checkout.html" class="info">Buy</a>
+                                                @Html.ActionLink("Satın Al", "Satinal", new { uid = Convert.ToInt32(dtUrunler.Rows[i]["kodu"].ToString()) }, new { @class = "info" });
+                                                
 
                                                
 

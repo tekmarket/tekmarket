@@ -12,11 +12,16 @@ namespace teknolojiMarket.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            Session["siparisSon"] = "";
 
             if (Session["musteri"] == null) {
                 return RedirectToAction("Login", "Login");
             }
             return View();
+        }
+        public ActionResult Satinal(string uid) {
+            SEkle(uid);
+            return RedirectToAction("Checkout", "Home");
         }
         public ActionResult SEkle(string uid)
         {
@@ -50,12 +55,81 @@ namespace teknolojiMarket.Controllers
             IEnumerable<SelectListItem> list = from k in adres
                           select new SelectListItem
                         {
-                                        Value = k.adres_id.ToString(),
+                             Value = k.adres_id.ToString(),
                             Text = k.baslik,
                       };
             ViewData["dropdown"] = list;
-        
+     
             return View();
+        }
+
+        
+        public ActionResult Tamamla() {
+            string sqlQeuery;
+            if (Session["musteri"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            Musteri m = Session["musteri"] as Musteri;
+            if (m.sepet.Count != 0)
+            {
+                /* sepet toplamını bul */
+                double tutar = 0;
+                foreach (Urun u in m.sepet)
+                    {
+                    tutar += u.fiyat;
+                    }
+
+                if (tutar > m.bakiye)
+                {
+                    Session["siparisSon"] = "bakiyeniz Yetersiz";
+                    return RedirectToAction("Checkout", "Home");
+                }
+                CodeDB cdb = new CodeDB();
+                /* bakiyeyi güncelle */
+                m.bakiye -= tutar;
+                sqlQeuery = "UPDATE Musteri SET bakiye="+m.bakiye+"WHERE kullaniciID="+m.kullaniciID;
+                cdb.SqlKomut(sqlQeuery);
+
+
+                /* Sipariş tablosuna siparişi yaz */
+                sqlQeuery = "INSERT INTO Siparis(tutar,durum,tarih,musteriID) VALUES(" + tutar.ToString() + ",'Tedarik Sürecinde'";
+                sqlQeuery +=", '"+DateTime.Today.ToString("dd.MM.yyyy") +"',"+m.kullaniciID + ")";
+                cdb.SqlKomut(sqlQeuery);
+
+                /* sipariş kodunu al */
+                sqlQeuery = "SELECT siparisKodu FROM Siparis WHERE tutar =" + tutar.ToString() + " AND musteriID = " + m.kullaniciID;
+                sqlQeuery += " AND tarih='" + DateTime.Today.ToString("dd.MM.yyyy")+"'";
+                DataTable dt = cdb.SqlSorgu(sqlQeuery);
+
+                
+                if (dt.Rows.Count != 0) {
+                    string siparisKodu = dt.Rows[0]["siparisKodu"].ToString();
+                    /* içerir tablosunu doldur */
+                    foreach (Urun u in m.sepet) {
+                        sqlQeuery = "INSERT INTO Icerir(sKod, adet, urun_kodu) VALUES(" + siparisKodu;
+                        sqlQeuery += ", " + u.adet +", "+u.kodu + ")";
+                        cdb.SqlKomut(sqlQeuery);
+                    }
+                    /* Sepeti temizle */
+                    sqlQeuery = "DELETE FROM Sepet Where Musteri_kullaniciID=" + m.kullaniciID;
+                    cdb.SqlKomut(sqlQeuery);
+                    m.sepet = new List<Urun>();
+                    Session["musteri"] = m;
+                    Session["siparisSon"] = " Siparişiniz tamamlandı";
+                }
+                else
+                {
+                    /* data table boş geldi */
+                   Session["siparisSon"] = "Bir hata ile karşılaşıldı";
+                }
+                
+
+            }
+            else {
+               Session["siparisSon"] = "sepetiniz Boş";
+            }
+            return RedirectToAction("Checkout","Home");
         }
         public ActionResult AdresEkle()
         {
@@ -113,6 +187,7 @@ namespace teknolojiMarket.Controllers
 
         public void SepetDelete(string i)
         {
+            Session["siparisSon"] = "";
             int Ukodu;
             Ukodu = Convert.ToInt32(i);
 
@@ -163,19 +238,23 @@ namespace teknolojiMarket.Controllers
             else
             {
                 Musteri m = Session["musteri"] as Musteri;
-                string sqlSorugum = "SELECT S.tutar,S.durum,S.tarih,U.baslik FROM Siparis S,Icerir I, Urun U WHERE I.urun_kodu=U.kodu ";
-                sqlSorugum += "AND S.musteriID = " + m.kullaniciID;
+                string sqlSorugum = "SELECT S.tutar,S.durum,S.tarih,U.baslik, S.siparisKodu FROM Siparis S,Icerir I, Urun U WHERE I.urun_kodu=U.kodu ";
+                sqlSorugum += "AND S.musteriID = " + m.kullaniciID + " AND I.sKod=S.siparisKodu  ORDER BY S.siparisKodu";
                 DataTable sqlSonuc = new DataTable();
                 CodeDB cntrl = new CodeDB();
                 sqlSonuc = cntrl.SqlSorgu(sqlSorugum);
                 if (sqlSonuc.Rows.Count != 0) {
+
+                    ViewData["siparisler"] = sqlSonuc;
+
+                    /*
                 for (int i=0;i<sqlSonuc.Rows.Count;i++) { 
-                    ViewData["a"] +=" "+ sqlSonuc.Rows[i]["durum"].ToString();
+                    ViewData["a"] +="<p>"+ sqlSonuc.Rows[i]["durum"].ToString();
                     ViewData["a"] +=" "+ sqlSonuc.Rows[i]["baslik"].ToString();
                     ViewData["a"] += " " + sqlSonuc.Rows[i]["tarih"].ToString();
                     ViewData["a"] += " " + sqlSonuc.Rows[i]["tutar"].ToString();
-                    ViewData["a"] += " " + "\n";
-                } }
+                    ViewData["a"] += " " + "</p>";
+                }*/ }
             }
             return View();
 
