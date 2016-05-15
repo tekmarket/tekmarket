@@ -1,0 +1,189 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <style type="text/css">
+        a.buton {
+            float: left;
+            font-size: 14px;
+            font-weight: bold;
+            border-top: 1px solid #999;
+            border-left: 1px solid #999;
+            border-right: 1px solid #333;
+            border-bottom: 1px solid #333;
+            color: #333;
+            width: auto;
+            text-decoration: none;
+            width: 200px;
+            display: block;
+        }
+
+            a.buton:hover {
+                border-top: 1px solid #333;
+                border-left: 1px solid #333;
+                border-right: 1px solid #999;
+                border-bottom: 1px solid #999;
+                color: #333;
+            }
+
+            a.buton span {
+                background: #d4d0c8 url(buton_ard.gif) repeat-x;
+                float: left;
+                line-height: 24px;
+                height: 24px;
+                padding: 0 10px;
+                border-right: 1px solid #777;
+                border-bottom: 1px solid #777;
+                width: 180px;
+            }
+
+            a.buton:hover span {
+                border: none;
+                border-top: 1px solid #777;
+                border-left: 1px solid #777;
+                background: #d4d0c8 url(buton_fare_ard.gif) repeat-x;
+                cursor: pointer;
+            }
+
+        .button-link {
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            border: solid 1px #20538D;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+            -webkit-transition-duration: 0.2s;
+            -moz-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+        }
+
+            .button-link:hover, .button-link:focus {
+                background: #356094;
+                border: solid 1px #2A4E77;
+                text-decoration: none;
+            }
+
+            .button-link:active {
+                -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+                -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+                box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+                background: #2E5481;
+                border: solid 1px #203E5F;
+            }
+
+        .auto-style1 {
+            width: 100%;
+        }
+
+        .auto-style5 {
+            width: 212px;
+        }
+
+        .auto-style3 {
+            width: 227px;
+        }
+
+        .auto-style2 {
+            width: 207px;
+            height: 56px;
+        }
+
+        .auto-style7 {
+            width: 369px;
+        }
+
+        .auto-style15 {
+            width: 212px;
+            height: 23px;
+        }
+
+        .auto-style9 {
+            width: 383px;
+        }
+
+        .auto-style16 {
+            height: 23px;
+        }
+
+        .auto-style6 {
+            height: 243px;
+            width: 212px;
+        }
+
+        .auto-style4 {
+            height: 243px;
+        }
+
+        .auto-style17 {
+            width: 535px;
+            height: 26px;
+        }
+
+        .auto-style18 {
+            width: 383px;
+            height: 26px;
+        }
+
+        .auto-style19 {
+            width: 535px;
+            height: 30px;
+        }
+
+        .auto-style20 {
+            width: 383px;
+            height: 30px;
+        }
+
+        .auto-style21 {
+            width: 194px;
+            height: 112px;
+        }
+
+        .auto-style22 {
+            width: 535px;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="auto-style1">
+        <tr>
+            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style3">
+                <a href="@Url.Action("Panel","Admin")">
+                    <img alt="" class="auto-style2" src="@Url.Content("~/Content/img/highreslogo.png")" />
+                </a>
+                
+            </td>
+            <td class="auto-style7"><h1>Admin Paneli</h1></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style15"></td>
+            <td colspan="2" rowspan="3">
+           @RenderBody()
+            </td>
+            <td class="auto-style16"></td>
+        </tr>
+        <tr>
+            <td class="auto-style5">&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style6"></td>
+            <td class="auto-style4"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

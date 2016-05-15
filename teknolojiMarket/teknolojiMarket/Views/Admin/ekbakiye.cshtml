@@ -1,18 +1,47 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Bakiye Ekle";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>ekbakiye</title>
-</head>
-<body>
-    <div> 
-        BAKİYE EKLEME SAYFASI
-    </div>
-</body>
-</html>
+<table>
+    <tr>
+        <td>&nbsp;</td>
+        <td>kullanici nik</td>
+        <td>
+            @using (Html.BeginForm()) {
+                Html.TextBox("kullaniciID");
+
+            }
+           <a class="button" href="@Url." ></a>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>ad soyad</td>
+        <td>isim</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>kullanıcı id</td>
+        <td>id</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>bakiye</td>
+        <td>TL</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>eklenecek tutar</td>
+        <td>
+            <input id="Text2" type="text" /><input id="Button2" type="button" value="text" />
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
