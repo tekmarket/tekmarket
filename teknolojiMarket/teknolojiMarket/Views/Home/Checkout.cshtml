@@ -72,21 +72,16 @@
                        
                         <div class="row-fluid cart-pay">
                             <div class="span6"> <br>
-
-   
-
-    
-
-   
-
-
-
    </div>
-                            <div class="span6 cart-checkout"><button class="btn"><i class="icon-arrows-ccw"></i> Update Cart</button> 
+                            <div class="span6 cart-checkout">
+                                <!-- <button class="btn"><i class="icon-arrows-ccw"></i> Update Cart</button> -->
+
                             @using (Html.BeginForm())
                             {
-                                @Html.DropDownList("dropdown", "Seç")
-                                 @Html.ActionLink("Siparişi Tamamla", "Tamamla", null, new { @class = "btn theme" });
+                                string bosluk = "&nbsp; &nbsp;&nbsp; &nbsp;";
+                                @Html.DropDownList("dropdown", "Seç") 
+                                @bosluk                                 
+                                @Html.ActionLink("Siparişi Tamamla", "Tamamla", null, new { @class = "btn theme" });
                              
                             }
                            <!-- <button class="btn theme"><i class="icon-check"></i> Check Out </button> --> 

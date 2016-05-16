@@ -137,7 +137,7 @@
                                             for (int i = 0; i < sepet.Count; i++)
                                             {
                                             <div class="clearfix">
-                                                <a href="#">@sepet[i].baslik</a> <a href="#">  </a> <span class="theme pull-right">@sepet[i].adet X  $@sepet[i].fiyat</span>
+                                                <a href="#">@sepet[i].baslik</a> <a href="#">  </a> <span class="theme pull-right">@sepet[i].adet &nbsp; X &nbsp; @sepet[i].fiyat TL </span>
                                             </div>
                                             toplam += sepet[i].fiyat*sepet[i].adet;
                                         }
@@ -146,7 +146,7 @@
                                     <hr />
                                     <!-- Total -->
                                     <div class="clearfix">
-                                        TOPLAM <span class="theme pull-right">$@toplam</span>
+                                        TOPLAM <span class="theme pull-right"> @toplam &nbsp; TL</span>
                                     </div>
                                     <hr />
                                     <div class="clearfix">
