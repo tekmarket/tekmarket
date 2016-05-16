@@ -121,7 +121,7 @@ namespace teknolojiMarket.Controllers
                 {
                     ViewData["isupdurum"] = "";
                     s = Session["siparis"] as Siparis;
-                    string sqlQuery = "UPDATE Siparis SET durum ='" + tbdurum + "'";
+                    string sqlQuery = "UPDATE Siparis SET durum ='" + tbdurum + "' WHERE siparisKodu="+ tbSkod;
                     if (cdb.SqlKomut(sqlQuery))
                     {
                         ViewData["isupdurum"] = "işlem Başarılı";

@@ -86,6 +86,28 @@ namespace teknolojiMarket.Controllers
                     return RedirectToAction("Checkout", "Home");
                 }
                 CodeDB cdb = new CodeDB();
+                DataTable dt = new DataTable();
+                /* sepetteki ürünlerden stokta yeteri kadar var mı? */
+                foreach (Urun u in m.sepet) {
+                    sqlQeuery = "SELECT stok FROM Urun WHERE kodu = " + u.kodu;
+                    dt = cdb.SqlSorgu(sqlQeuery);
+                    if (Convert.ToInt32(dt.Rows[0]["stok"].ToString()) < u.adet) {
+                        Session["siparisSon"] = u.baslik + " ünününde stok yetersiz !";
+                        return RedirectToAction("Checkout", "Home");
+                    }
+                }
+
+                /* ürünleri stoktan düş */
+                int stok;
+                    foreach (Urun u in m.sepet)
+                    {
+                        sqlQeuery = "SELECT stok FROM Urun WHERE kodu = " + u.kodu;
+                        dt = cdb.SqlSorgu(sqlQeuery);
+                        stok = Convert.ToInt32(dt.Rows[0]["stok"].ToString());
+                        sqlQeuery = "UPDATE Urun SET stok=" + (stok - u.adet) + " WHERE kodu = " + u.kodu;
+                        cdb.SqlKomut(sqlQeuery);
+                    }
+
                 /* bakiyeyi güncelle */
                 m.bakiye -= tutar;
                 sqlQeuery = "UPDATE Musteri SET bakiye="+m.bakiye+"WHERE kullaniciID="+m.kullaniciID;
@@ -100,7 +122,7 @@ namespace teknolojiMarket.Controllers
                 /* sipariş kodunu al */
                 sqlQeuery = "SELECT siparisKodu FROM Siparis WHERE tutar =" + tutar.ToString() + " AND musteriID = " + m.kullaniciID;
                 sqlQeuery += " AND tarih='" + DateTime.Today.ToString("dd.MM.yyyy")+"'";
-                DataTable dt = cdb.SqlSorgu(sqlQeuery);
+                dt = cdb.SqlSorgu(sqlQeuery);
 
                 
                 if (dt.Rows.Count != 0) {

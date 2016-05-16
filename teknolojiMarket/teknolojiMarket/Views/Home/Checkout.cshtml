@@ -78,9 +78,9 @@
 
                             @using (Html.BeginForm())
                             {
-                                string bosluk = "&nbsp; &nbsp;&nbsp; &nbsp;";
+                                string bosluk = "       ";
                                 @Html.DropDownList("dropdown", "Seç") 
-                                @bosluk                                 
+                                <p>@bosluk</p>
                                 @Html.ActionLink("Siparişi Tamamla", "Tamamla", null, new { @class = "btn theme" });
                              
                             }

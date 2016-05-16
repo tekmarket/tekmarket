@@ -520,9 +520,9 @@
     <Content Include="Content\img\background\woven.png" />
     <Content Include="Content\img\background\xv.png" />
     <Content Include="Content\img\background\zigzag.png" />
-    <Content Include="Content\img\banner\b1.png" />
-    <Content Include="Content\img\banner\b2.png" />
-    <Content Include="Content\img\banner\b3.png" />
+    <Content Include="Content\img\banner\b1.jpg" />
+    <Content Include="Content\img\banner\b2.jpg" />
+    <Content Include="Content\img\banner\b3.jpg" />
     <Content Include="Content\img\banner\homebanner1.png" />
     <Content Include="Content\img\banner\homebanner2.png" />
     <Content Include="Content\img\banner\homebanner3.png" />
